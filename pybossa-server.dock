@@ -1,0 +1,18 @@
+FROM atkinschang/docker-plsm-base
+MAINTAINER littleq0903@gmail.com
+
+RUN apt-get update
+RUN apt-get install --yes git-core postgresql postgresql-server-dev-all libpq-dev python-psycopg2 python-virtualenv python-dev build-essential libjpeg-dev libssl-dev swig libffi-dev python-setuptools
+RUN easy_install pip
+
+WORKDIR /tmp
+RUN git clone --recursive https://github.com/PyBossa/pybossa
+WORKDIR pybossa
+
+ADD ./conf/settings_local.py ./settings_local.py
+
+RUN pip install -U pip
+RUN pip install -r ./requirements.txt
+
+CMD python run.py
+EXPOSE 5000
