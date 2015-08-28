@@ -1,5 +1,5 @@
 # Pull base image.
-FROM atkinschang/docker-plsm-base
+FROM nccucsplsm/plsm-base
 
 RUN apt-get update
 RUN apt-get install --yes wget build-essential

@@ -1,4 +1,4 @@
-FROM atkinschang/docker-plsm-base
+FROM nccucsplsm/plsm-base
 MAINTAINER littleq0903@gmail.com
 
 RUN apt-get update
